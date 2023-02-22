@@ -7,7 +7,7 @@ class SuraDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //receive arguments / parameters
-    //down casting convert from typr Object to type of SuraDetailsArgs
+    //down casting convert from type Object to type of SuraDetailsArgs
     SuraDetailsArgs arguments =
         ModalRoute.of(context)?.settings.arguments as SuraDetailsArgs;
     return Container(
