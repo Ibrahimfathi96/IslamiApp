@@ -24,6 +24,7 @@ class _SuraTitleWidgetState extends State<SuraTitleWidget> {
           widget.title,
           style: const TextStyle(
             fontSize: 26,
+            fontFamily: "El-Messi-ri",
           ),
         ),
       ),

@@ -32,7 +32,10 @@ class _SebhaScreenContentState extends State<SebhaScreenContent> {
           ),
           const Text(
             "عدد التسبيحات",
-            style: TextStyle(fontSize: 26, fontWeight: FontWeight.w500),
+            style: TextStyle(
+                fontFamily: "El-Messi-ri",
+                fontSize: 26,
+                fontWeight: FontWeight.w500),
           ),
           const SizedBox(
             height: 22,
@@ -46,7 +49,10 @@ class _SebhaScreenContentState extends State<SebhaScreenContent> {
                 borderRadius: BorderRadius.circular(20)),
             child: Text(
               '$sebha_counter',
-              style: const TextStyle(fontSize: 26, fontWeight: FontWeight.w500),
+              style: const TextStyle(
+                  fontFamily: "El-Messi-ri",
+                  fontSize: 26,
+                  fontWeight: FontWeight.w500),
             ),
           ),
           const SizedBox(
@@ -61,7 +67,10 @@ class _SebhaScreenContentState extends State<SebhaScreenContent> {
                 borderRadius: BorderRadius.circular(20)),
             child: Text(
               sebha_text,
-              style: const TextStyle(fontSize: 26, fontWeight: FontWeight.w500),
+              style: const TextStyle(
+                  fontFamily: "El-Messi-ri",
+                  fontSize: 26,
+                  fontWeight: FontWeight.w500),
             ),
           ),
         ],
