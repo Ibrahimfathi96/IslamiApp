@@ -12,7 +12,10 @@ class MyThemeData {
         elevation: 0,
         color: Colors.transparent,
         titleTextStyle: TextStyle(
-            color: Colors.black, fontWeight: FontWeight.w500, fontSize: 30),
+            fontFamily: "El-Messi-ri",
+            color: Colors.black,
+            fontWeight: FontWeight.w500,
+            fontSize: 30),
       ),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         elevation: 0,
@@ -22,9 +25,14 @@ class MyThemeData {
         unselectedIconTheme: IconThemeData(size: 48),
         selectedItemColor: Colors.black,
         unselectedItemColor: Colors.white,
-        selectedLabelStyle:
-            TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-        unselectedLabelStyle: TextStyle(fontSize: 16),
+        selectedLabelStyle: TextStyle(
+            fontFamily: "El-Messi-ri",
+            fontSize: 16,
+            fontWeight: FontWeight.bold),
+        unselectedLabelStyle: TextStyle(
+          fontSize: 16,
+          fontFamily: "El-Messi-ri",
+        ),
         backgroundColor: lightPrimaryColor,
       ));
   static final ThemeData darkTheme = ThemeData(
@@ -35,7 +43,11 @@ class MyThemeData {
       elevation: 0,
       color: Colors.transparent,
       titleTextStyle: TextStyle(
-          color: Colors.black, fontWeight: FontWeight.w500, fontSize: 30),
+        color: Colors.black,
+        fontWeight: FontWeight.w500,
+        fontSize: 30,
+        fontFamily: "El-Messi-ri",
+      ),
     ),
     // bottomNavigationBarTheme: const BottomNavigationBarThemeData(
     //   // selectedItemColor: Color(0xFFFACC1D),
