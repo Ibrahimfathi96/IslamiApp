@@ -113,11 +113,9 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
         await rootBundle.loadString('assets/sura_content/$fileIndex.txt');
     // we need to separate every verse in a line
     List<String> verseLines = fileContent.trim().split('\n');
-    print(verseLines);
     setState(() {
       verses = verseLines;
     });
-
     //show in ListView
   }
 }
