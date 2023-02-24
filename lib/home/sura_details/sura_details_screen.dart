@@ -108,6 +108,7 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
 
   // stdin.readLineSync(); //blocking code
   void readVersesContent(int fileIndex) async {
+    //async reduce using many call backs
     //blocking code // you can't use await function without being async function
     String fileContent =
         await rootBundle.loadString('assets/sura_content/$fileIndex.txt');
