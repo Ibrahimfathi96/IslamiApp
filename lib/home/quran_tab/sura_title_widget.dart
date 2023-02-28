@@ -22,11 +22,7 @@ class _SuraTitleWidgetState extends State<SuraTitleWidget> {
         alignment: Alignment.center,
         child: Text(
           widget.title,
-          style: const TextStyle(
-            fontSize: 26,
-            fontFamily: "El-Messi-ri",
-          ),
-        ),
+          style: Theme.of(context).textTheme.headlineLarge),
       ),
       onTap: () {
         Navigator.pushNamed(context, SuraDetailsScreen.routeName,
