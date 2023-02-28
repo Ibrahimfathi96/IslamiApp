@@ -3,6 +3,10 @@ import 'package:islami/home/hadeth_tab/hadeth_tab.dart';
 import 'package:islami/home/quran_tab/quran_tab.dart';
 import 'package:islami/home/radio_tab/radio_tab.dart';
 import 'package:islami/home/sebha_tab/sebha_tab.dart';
+import 'package:provider/provider.dart';
+
+import '../Providers/settings_provider.dart';
+import 'settings_screen/settings_tab.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = 'home';
@@ -16,13 +20,15 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var settingsProvider = Provider.of<SettingsProvider>(context);
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
           image: DecorationImage(
-              image: AssetImage('assets/images/bg3.png'), fit: BoxFit.fill)),
+              image: AssetImage(settingsProvider.getMainBackGroudImage()),
+              fit: BoxFit.fill)),
       child: Scaffold(
         appBar: AppBar(
-          title: const Text("إسلامي"),
+          title: const Text("islami"),
         ),
         body: tabs[selectedIndex],
         bottomNavigationBar: BottomNavigationBar(
@@ -36,20 +42,24 @@ class _HomeScreenState extends State<HomeScreen> {
             BottomNavigationBarItem(
                 backgroundColor: Theme.of(context).primaryColor,
                 icon: const ImageIcon(AssetImage('assets/images/ic_quran.png')),
-                label: 'المصحف'),
+                label: 'Quran'),
             BottomNavigationBarItem(
                 backgroundColor: Theme.of(context).primaryColor,
                 icon:
                     const ImageIcon(AssetImage('assets/images/ic_hadeth.png')),
-                label: 'الأحاديث'),
+                label: 'Hadeth'),
             BottomNavigationBarItem(
                 backgroundColor: Theme.of(context).primaryColor,
                 icon: const ImageIcon(AssetImage('assets/images/sebha.png')),
-                label: 'التسبيح'),
+                label: 'Tasbeh'),
             BottomNavigationBarItem(
                 backgroundColor: Theme.of(context).primaryColor,
                 icon: const ImageIcon(AssetImage('assets/images/radio.png')),
-                label: 'الراديو'),
+                label: 'Radio'),
+            BottomNavigationBarItem(
+                backgroundColor: Theme.of(context).primaryColor,
+                icon: const Icon(Icons.settings),
+                label: 'Settings'),
           ],
         ),
       ),
@@ -60,6 +70,7 @@ class _HomeScreenState extends State<HomeScreen> {
     QuranScreenContent(),
     HadethScreenContent(),
     SebhaScreenContent(),
-    RadioScreenContent()
+    RadioScreenContent(),
+    SettingsTab()
   ];
 }

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:islami/Providers/settings_provider.dart';
+import 'package:provider/provider.dart';
 
 class SebhaScreenContent extends StatefulWidget {
   @override
@@ -11,6 +13,7 @@ class _SebhaScreenContentState extends State<SebhaScreenContent> {
 
   @override
   Widget build(BuildContext context) {
+    var settingsProvider = Provider.of<SettingsProvider>(context);
     return Container(
       alignment: Alignment.center,
       child: Column(
@@ -22,21 +25,19 @@ class _SebhaScreenContentState extends State<SebhaScreenContent> {
               });
             },
             child: Image.asset(
-              'assets/images/sebha_header.png',
+              settingsProvider.currentTheme == ThemeMode.dark
+                  ? 'assets/images/sebha_dark.png'
+                  : 'assets/images/sebha_header.png',
               width: 232,
               height: 312,
+              fit: BoxFit.fill,
             ),
           ),
           const SizedBox(
             height: 22,
           ),
-          const Text(
-            "عدد التسبيحات",
-            style: TextStyle(
-                fontFamily: "El-Messi-ri",
-                fontSize: 26,
-                fontWeight: FontWeight.w500),
-          ),
+          Text("عدد التسبيحات",
+              style: Theme.of(context).textTheme.headlineLarge),
           const SizedBox(
             height: 22,
           ),
@@ -45,15 +46,11 @@ class _SebhaScreenContentState extends State<SebhaScreenContent> {
             width: 69,
             height: 81,
             decoration: BoxDecoration(
-                color: const Color(0x91B89360),
+                color: Theme.of(context).primaryColor,
                 borderRadius: BorderRadius.circular(20)),
             child: Text(
-              '$sebha_counter',
-              style: const TextStyle(
-                  fontFamily: "El-Messi-ri",
-                  fontSize: 26,
-                  fontWeight: FontWeight.w500),
-            ),
+                '$sebha_counter',
+                style: Theme.of(context).textTheme.headlineLarge),
           ),
           const SizedBox(
             height: 22,
@@ -63,15 +60,11 @@ class _SebhaScreenContentState extends State<SebhaScreenContent> {
             width: 137,
             height: 51,
             decoration: BoxDecoration(
-                color: Theme.of(context).primaryColor,
+                color: Theme.of(context).accentColor,
                 borderRadius: BorderRadius.circular(20)),
             child: Text(
-              sebha_text,
-              style: const TextStyle(
-                  fontFamily: "El-Messi-ri",
-                  fontSize: 26,
-                  fontWeight: FontWeight.w500),
-            ),
+                sebha_text,
+                style: Theme.of(context).textTheme.headlineLarge),
           ),
         ],
       ),
