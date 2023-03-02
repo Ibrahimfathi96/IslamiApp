@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islami/Providers/settings_provider.dart';
+import 'package:islami/home/settings_screen/language_bottom_sheet.dart';
 import 'package:islami/home/settings_screen/theme_bottom_sheet.dart';
+import 'package:provider/provider.dart';
 
 class SettingsTab extends StatefulWidget {
   static const String routeName = 'settings-screen';
@@ -11,6 +15,7 @@ class SettingsTab extends StatefulWidget {
 class _SettingsTabState extends State<SettingsTab> {
   @override
   Widget build(BuildContext context) {
+    var settingsProvider = Provider.of<SettingsProvider>(context);
     return Container(
       padding: const EdgeInsets.all(16),
       child: Column(
@@ -19,8 +24,8 @@ class _SettingsTabState extends State<SettingsTab> {
           Padding(
             padding: const EdgeInsets.only(left: 14.0),
             child: Text(
-              'Theme',
-              style: Theme.of(context).textTheme.titleSmall,
+              AppLocalizations.of(context)!.theme,
+              style: Theme.of(context).textTheme.headlineMedium,
             ),
           ),
           const SizedBox(
@@ -36,19 +41,21 @@ class _SettingsTabState extends State<SettingsTab> {
                   border: Border.all(color: Theme.of(context).accentColor)),
               padding: const EdgeInsets.all(12),
               child: Text(
-                'Light',
+                settingsProvider.isDarkMode()
+                    ? AppLocalizations.of(context)!.dark
+                    : AppLocalizations.of(context)!.light,
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
             ),
           ),
           const SizedBox(
-            height: 26,
+            height: 20,
           ),
           Padding(
             padding: const EdgeInsets.only(left: 14.0),
             child: Text(
-              'Language',
-              style: Theme.of(context).textTheme.titleSmall,
+              AppLocalizations.of(context)!.lang,
+              style: Theme.of(context).textTheme.headlineMedium,
             ),
           ),
           const SizedBox(
@@ -56,7 +63,7 @@ class _SettingsTabState extends State<SettingsTab> {
           ),
           InkWell(
             onTap: () {
-              showThemeButtonSheet();
+              showLangButtonSheet();
             },
             child: Container(
               decoration: BoxDecoration(
@@ -64,7 +71,7 @@ class _SettingsTabState extends State<SettingsTab> {
                   border: Border.all(color: Theme.of(context).accentColor)),
               padding: const EdgeInsets.all(12),
               child: Text(
-                'English',
+                settingsProvider.currentLang == 'en' ? 'English' : 'العربية',
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
             ),
@@ -78,6 +85,13 @@ class _SettingsTabState extends State<SettingsTab> {
     showModalBottomSheet(
       context: context,
       builder: (builderContext) => ThemeBottomSheet(),
+    );
+  }
+
+  void showLangButtonSheet() {
+    showModalBottomSheet(
+      context: context,
+      builder: (buildContext) => LanguageBottomSheet(),
     );
   }
 }
