@@ -1,5 +1,4 @@
 # Islami-Application
-Route Academy islami Application
 ## initializing the application
 ## made Splash Screen
 ## made light and dark theme
