@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami/home/quran_tab/sura_title_widget.dart';
 
 class QuranScreenContent extends StatelessWidget {
@@ -127,24 +128,21 @@ class QuranScreenContent extends StatelessWidget {
         const SizedBox(
           height: 12,
         ),
-        // Container(
-        //   height: 3,
-        //   color: Theme.of(context).primaryColor,
-        // ),
-        // const Padding(
-        //   padding: EdgeInsets.all(4.0),
-        //   child: Text('إسم السورة',
-        //     style: TextStyle(
-        //       fontSize: 26,
-        //       color: Colors.black,
-        //       fontWeight: FontWeight.w500
-        //     )
-        //   ),
-        // ),
-        // Container(
-        //   height: 3,
-        //   color: Theme.of(context).primaryColor,
-        // ),
+        Container(
+          margin: const EdgeInsets.symmetric(horizontal: 30),
+          height: 2,
+          color: Theme.of(context).accentColor,
+        ),
+        Padding(
+          padding: const EdgeInsets.all(4.0),
+          child: Text(AppLocalizations.of(context)!.chapter_name,
+              style: Theme.of(context).textTheme.headlineLarge),
+        ),
+        Container(
+          margin: const EdgeInsets.symmetric(horizontal: 30),
+          height: 2,
+          color: Theme.of(context).accentColor,
+        ),
         Expanded(
           flex: 5,
           child: ListView.separated(
@@ -153,8 +151,8 @@ class QuranScreenContent extends StatelessWidget {
             separatorBuilder: (context, index) => Container(
               margin: const EdgeInsets.symmetric(horizontal: 64),
               width: double.infinity,
-              height: 3,
-              color: Theme.of(context).primaryColor,
+              height: 2,
+              color: Theme.of(context).accentColor,
             ),
           ),
         ),
