@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:islami/Providers/settings_provider.dart';
 import 'package:islami/home/settings_screen/settings_tab.dart';
 import 'package:islami/home/sura_details/sura_details_screen.dart';
@@ -18,6 +20,14 @@ class MyApplication extends StatelessWidget {
   Widget build(BuildContext context) {
     var settingsProvider = Provider.of<SettingsProvider>(context);
     return MaterialApp(
+      locale: Locale(settingsProvider.currentLang),
+      localizationsDelegates: [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: AppLocalizations.supportedLocales,
       theme: MyThemeData.lightTheme,
       darkTheme: MyThemeData.darkTheme,
       themeMode: settingsProvider.currentTheme,

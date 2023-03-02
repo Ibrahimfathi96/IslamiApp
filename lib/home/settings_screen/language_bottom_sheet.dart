@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami/Providers/settings_provider.dart';
 import 'package:provider/provider.dart';
 
-class ThemeBottomSheet extends StatefulWidget {
+class LanguageBottomSheet extends StatefulWidget {
   @override
-  State<ThemeBottomSheet> createState() => _ThemeBottomSheetState();
+  State<LanguageBottomSheet> createState() => _LanguageBottomSheetState();
 }
 
-class _ThemeBottomSheetState extends State<ThemeBottomSheet> {
+class _LanguageBottomSheetState extends State<LanguageBottomSheet> {
   @override
   Widget build(BuildContext context) {
     var settingsProvider = Provider.of<SettingsProvider>(context);
@@ -18,22 +17,24 @@ class _ThemeBottomSheetState extends State<ThemeBottomSheet> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           InkWell(
-              onTap: () {
-                settingsProvider.changeTheme(ThemeMode.dark);
-              },
-              child: settingsProvider.isDarkMode()
-                  ? getSelectedIcon(AppLocalizations.of(context)!.dark)
-                  : getUnSelectedIcon(AppLocalizations.of(context)!.dark)),
+            onTap: () {
+              settingsProvider.getLang('en');
+            },
+            child: settingsProvider.currentLang == 'en'
+                ? getSelectedIcon('English')
+                : getUnSelectedIcon('English'),
+          ),
           const SizedBox(
             height: 12,
           ),
           InkWell(
-              onTap: () {
-                settingsProvider.changeTheme(ThemeMode.light);
-              },
-              child: settingsProvider.isDarkMode()
-                  ? getUnSelectedIcon(AppLocalizations.of(context)!.light)
-                  : getSelectedIcon(AppLocalizations.of(context)!.light)),
+            onTap: () {
+              settingsProvider.getLang('ar');
+            },
+            child: settingsProvider.currentLang == 'ar'
+                ? getSelectedIcon('العربية')
+                : getUnSelectedIcon('العربية'),
+          ),
         ],
       ),
     );

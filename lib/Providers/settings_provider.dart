@@ -2,6 +2,12 @@ import 'package:flutter/material.dart';
 
 class SettingsProvider extends ChangeNotifier {
   ThemeMode currentTheme = ThemeMode.dark;
+  String currentLang = 'ar';
+
+  void getLang(String newLocale) {
+    currentLang = newLocale;
+    notifyListeners();
+  }
 
   //observable pattern
   void changeTheme(ThemeMode newMode) {

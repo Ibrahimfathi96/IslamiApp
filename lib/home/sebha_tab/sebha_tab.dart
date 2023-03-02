@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami/Providers/settings_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -36,7 +37,7 @@ class _SebhaScreenContentState extends State<SebhaScreenContent> {
           const SizedBox(
             height: 22,
           ),
-          Text("عدد التسبيحات",
+          Text(AppLocalizations.of(context)!.mention_number,
               style: Theme.of(context).textTheme.headlineLarge),
           const SizedBox(
             height: 22,
