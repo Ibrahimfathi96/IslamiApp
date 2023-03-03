@@ -26,6 +26,7 @@ class _SebhaScreenContentState extends State<SebhaScreenContent> {
               });
             },
             child: Image.asset(
+              /// TODO Make this image body rotatable
               settingsProvider.currentTheme == ThemeMode.dark
                   ? 'assets/images/sebha_dark.png'
                   : 'assets/images/sebha_header.png',
