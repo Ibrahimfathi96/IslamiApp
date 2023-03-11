@@ -15,7 +15,7 @@ class HadethDetailsScreen extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-            image: AssetImage(settingsProvider.getMainBackGroudImage()),
+            image: AssetImage(settingsProvider.getMainBackGroundImage()),
             fit: BoxFit.fill),
       ),
       child: Scaffold(
