@@ -39,6 +39,9 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   intl: any
+  shared_preferences: ^2.0.18
+  http: ^0.13.5
+  audioplayers: ^0.20.1
 
 dev_dependencies:
   flutter_test:

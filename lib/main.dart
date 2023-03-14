@@ -5,6 +5,7 @@ import 'package:islami/Providers/settings_provider.dart';
 import 'package:islami/home/settings_screen/settings_tab.dart';
 import 'package:islami/home/sura_details/sura_details_screen.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'home/hadeth_details/hadeth_details_screen.dart';
 import 'home/home_screen.dart';
@@ -16,12 +17,15 @@ void main() {
 }
 
 class MyApplication extends StatelessWidget {
+  late SettingsProvider settingsProvider;
+
   @override
   Widget build(BuildContext context) {
-    var settingsProvider = Provider.of<SettingsProvider>(context);
+    settingsProvider = Provider.of(context);
+    getValueFromSharedPreferences();
     return MaterialApp(
       locale: Locale(settingsProvider.currentLang),
-      localizationsDelegates: [
+      localizationsDelegates: const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
@@ -40,5 +44,17 @@ class MyApplication extends StatelessWidget {
       },
       initialRoute: HomeScreen.routeName,
     );
+  }
+
+  getValueFromSharedPreferences() async {
+    final pref = await SharedPreferences.getInstance();
+    // set lang from sharedPreferences
+    settingsProvider.getLang(pref.getString('lang') ?? 'ar');
+    // set theme from sharedPreferences
+    if (pref.getString('theme') == 'light') {
+      settingsProvider.changeTheme(ThemeMode.light);
+    } else if (pref.getString('theme') == 'dark') {
+      settingsProvider.changeTheme(ThemeMode.dark);
+    }
   }
 }
