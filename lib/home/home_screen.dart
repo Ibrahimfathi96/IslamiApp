@@ -25,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Container(
       decoration: BoxDecoration(
           image: DecorationImage(
-              image: AssetImage(settingsProvider.getMainBackGroudImage()),
+              image: AssetImage(settingsProvider.getMainBackGroundImage()),
               fit: BoxFit.fill)),
       child: Scaffold(
         appBar: AppBar(
