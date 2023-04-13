@@ -1,3 +1,8 @@
 Link For the Application: https://drive.google.com/file/d/16yKlyTJXmjqaolVTUOSDt-X6vQSacpep/view?usp=share_link
 
 Islami App is Completely Finished. The app consists mainly of 5 tabs (Quran - Ahadith - Tasbeh - Radio - Settings) supporting light and dark theme also supporting arabic and english used quran Radio API - Provider as a state management and shared preferences quran and ahadith as a text not pic using logic to read it from txt files not packages tasbeh tab is changable for 4 rounds of tasbeh every round has 33 and the final round is 1 to complete 100 (سبحان الله - الحمدلله - الله اكبر - لا اله الا الله وحده لا شريك له)
+- UI Design 
+- Radio Api
+- Shared Preferences to save the selected theme and language
+- Native Splash Screen
+****Note: Check all the branches of this repo for the full updated code
