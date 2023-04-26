@@ -1,6 +1,8 @@
 Link For the Application: 
 (Video): https://drive.google.com/file/d/16yKlyTJXmjqaolVTUOSDt-X6vQSacpep/view?usp=share_link
+
 (Photos): https://drive.google.com/drive/folders/1xEi0NhjT1i595hdu1otNDwkwCxc0gpEa?usp=share_link
+
 Islami App is Completely Finished. The app consists mainly of 5 tabs (Quran - Ahadith - Tasbeh - Radio - Settings) 
 supporting light and dark theme also supporting arabic and english 
 used quran Radio API - 
